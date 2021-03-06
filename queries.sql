@@ -1,5 +1,6 @@
 #QUESTION 1
 
+/* Query 1 -query used for first insight */
 SELECT Film_title,
        Category,
        COUNT(*) AS Rental_count
@@ -22,6 +23,7 @@ GROUP BY 2,1
 ORDER By 2,1;
 
 #QUESTION 2
+/* Query 2 -query used for second insight */
 
 SELECT DATE_PART('month',r.rental_date) AS Rental_month, DATE_PART('year',r.rental_date) AS Rental_year, s.store_id,
        count(*) AS count_rentals
@@ -34,6 +36,7 @@ ORDER BY count_rentals DESC;
 
 
 #QUESTION 3
+/* Query 3 -query used for third insight */
 
 WITH results AS (SELECT DATE_TRUNC('month',p.payment_date) AS pay_mon,
           				c.first_name || ' ' || c.last_name AS full_name,
@@ -63,6 +66,7 @@ ORDER BY full_name, pay_mon;
 
 
 #QUESTION 4
+/* Query 4 -query used for fourth insight */
 
 WITH results AS (SELECT DATE_TRUNC('month',p.payment_date) AS pay_mon,
           				c.first_name || ' ' || c.last_name AS full_name,
