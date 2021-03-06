@@ -1,7 +1,7 @@
 #QUESTION 1
 
 /* Query 1 -query used for first insight */
-SELECT Film_title,
+WITH T1  AS (SELECT Film_title,
        Category,
        COUNT(*) AS Rental_count
 FROM
@@ -20,7 +20,13 @@ FROM
         WHERE c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
     )sub
 GROUP BY 2,1
-ORDER By 2,1;
+ORDER By 2,1)
+
+SELECT category, sum(rental_count)
+FROM T1
+GROUP BY 1
+ORDER BY 1
+
 
 #QUESTION 2
 
